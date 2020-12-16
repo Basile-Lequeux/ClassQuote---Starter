@@ -119,13 +119,4 @@ class QuoteService
         task.resume()
     
     }
-  
-    
-    
-    
-    
-    
-    
 }
-
-
