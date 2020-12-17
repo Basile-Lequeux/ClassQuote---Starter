@@ -89,6 +89,9 @@
                                                 <state key="normal" title="À propos">
                                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="qoJ-6Q-CjF" kind="show" id="T0q-du-P9J"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -183,6 +186,9 @@
             <point key="canvasLocation" x="388" y="167.73399014778326"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="T0q-du-P9J"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -2,9 +2,10 @@
 //  Quote.swift
 //  ClassQuote
 //
-//  Created by Ambroise COLLON on 30/03/2018.
-//  Copyright Â© 2018 OpenClassrooms. All rights reserved.
+//  Created by Coding Group on 16/12/20.
+//  Copyright © 2020 Quote. All rights reserved.
 //
+
 
 import Foundation
 

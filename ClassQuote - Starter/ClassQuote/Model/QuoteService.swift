@@ -2,9 +2,10 @@
 //  QuoteService.swift
 //  ClassQuote
 //
-//  Created by yatera_boubacar on 15/12/2020.
-//  Copyright © 2020 OpenClassrooms. All rights reserved.
+//  Created by Coding Group on 16/12/20.
+//  Copyright © 2020 Quote. All rights reserved.
 //
+
 
 import Foundation
 class QuoteService

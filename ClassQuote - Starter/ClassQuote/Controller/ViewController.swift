@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  ClassQuote
 //
-//  Created by Ambroise COLLON on 08/03/2018.
-//  Copyright © 2018 OpenClassrooms. All rights reserved.
+//  Created by Coding Group on 16/12/20.
+//  Copyright © 2020 Quote. All rights reserved.
 //
 
 import UIKit
@@ -99,10 +99,8 @@ class ViewController: UIViewController {
     //Gesture swipe
     @objc func didSwipe(sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
-            print("Swipe left")
             self.tappedNewQuoteButton()
         } else if (sender.direction == .right) {
-            print("Swipe right")
             self.addToFavoris()
         }
     }
