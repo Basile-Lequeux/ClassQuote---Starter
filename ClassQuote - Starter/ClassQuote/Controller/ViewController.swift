@@ -24,6 +24,9 @@ class ViewController: UIViewController {
         addConstraintToMenu()
         addShadowToQuoteLabel()
         
+        //Ajout bouton partage en espérant que c'est le bon
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shappedTapped))
+        
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
@@ -103,5 +106,13 @@ class ViewController: UIViewController {
         } else if (sender.direction == .right) {
             self.addToFavoris()
         }
+    }
+    
+    // Bouton share
+    
+    @objc func shappedTapped(){
+        let vc = UIActivityViewController(activityItems: [quoteLabel.text!] , applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
 }
