@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         addConstraintToMenu()
         addShadowToQuoteLabel()
+        //startPopup()
         
         //Ajout bouton partage
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shappedTapped))
@@ -51,6 +52,15 @@ class ViewController: UIViewController {
       
         
     }
+    
+    /*private func startPopup() {
+        let vc = PopupViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        DispatchQueue.main.async(execute: {
+            self.parent?.present(vc, animated: true)
+        })
+    }*/
 
     @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
         if menuIsHidden {
