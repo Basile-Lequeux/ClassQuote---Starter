@@ -81,19 +81,22 @@ class ViewController: UIViewController {
         quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
 
-    @IBAction func tappedNewQuoteButton() {
-        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-            //affich image
-            self.update(quote: quote)
-            self.CitationCount()
-            
-            } else {
-            //error
-            self.error()
-            }
-        }
-    }
+//    @IBAction func tappedNewQuoteButton() {
+//        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+//            //affich image
+//            self.update(quote: quote)
+//            self.CitationCount()
+//            
+//            } else {
+//            //error
+//            self.error()
+//            }
+//        }
+//    }
     
+    @IBAction func CourtQuote() {
+        Essaie2()
+    }
     
     @IBAction func longQuoteButton() {
         Essaie1()
@@ -118,6 +121,41 @@ class ViewController: UIViewController {
             }
         }
        
+    }
+    
+    func Essaie2()  {
+        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+            //affich image
+            if quote.text.count < 100{
+                self.update(quote: quote)
+                self.CitationCount()
+            }
+            else {
+                print("appel récursif + quote = \(quote.text.count)")
+                self.Essaie2()
+                
+            }
+            
+            } else {
+            //error
+            self.error()
+            }
+        }
+       
+    }
+    
+    func Essaie3() {
+        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+            //affich image
+            self.update(quote: quote)
+            self.CitationCount()
+            
+            } else {
+            //error
+            self.error()
+            }
+        }
+      
     }
 
   
@@ -146,7 +184,7 @@ class ViewController: UIViewController {
     //Gesture swipe
     @objc func didSwipe(sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
-            self.tappedNewQuoteButton()
+            self.Essaie3()
         } else if (sender.direction == .right) {
             self.addToFavoris()
         }

@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCX-fO-qgT">
-                                <rect key="frame" x="16" y="588" width="343" height="64"/>
+                                <rect key="frame" x="16" y="610" width="343" height="64"/>
                                 <color key="backgroundColor" red="0.58081901069999997" green="0.1812340378" blue="0.16750967750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Oxo-ok-o1a"/>
@@ -131,11 +131,26 @@
                                     <constraint firstItem="gfl-Iu-zgd" firstAttribute="top" secondItem="14W-E8-byY" secondAttribute="top" constant="20" id="xgp-23-kCU"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pin-PL-Zku">
+                                <rect key="frame" x="16" y="526" width="343" height="64"/>
+                                <color key="backgroundColor" red="0.58081901069999997" green="0.1812340378" blue="0.16750967750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="lS7-Ny-csR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                <state key="normal" title="Courte quote">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="CourtQuote" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEk-Xk-VVj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CWX-by-Hvf" firstAttribute="top" secondItem="A7k-Vv-VCh" secondAttribute="top" constant="8" id="10o-G8-ax2"/>
+                            <constraint firstItem="Pin-PL-Zku" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1fJ-mJ-eD2"/>
                             <constraint firstItem="14W-E8-byY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="26D-cM-uIE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="A7k-Vv-VCh" secondAttribute="trailing" constant="16" id="4gi-x5-2zj"/>
                             <constraint firstItem="14W-E8-byY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9ys-Ha-k28"/>
@@ -147,15 +162,18 @@
                             <constraint firstItem="RCX-fO-qgT" firstAttribute="trailing" secondItem="zRC-Xa-dPe" secondAttribute="trailing" id="VZS-zF-aUh"/>
                             <constraint firstItem="RCX-fO-qgT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WRL-jo-dRs"/>
                             <constraint firstItem="CWX-by-Hvf" firstAttribute="leading" secondItem="A7k-Vv-VCh" secondAttribute="leading" constant="8" id="el2-E4-oMa"/>
-                            <constraint firstItem="zRC-Xa-dPe" firstAttribute="top" secondItem="RCX-fO-qgT" secondAttribute="bottom" constant="42" id="hQi-jz-XGI"/>
+                            <constraint firstItem="zRC-Xa-dPe" firstAttribute="top" secondItem="RCX-fO-qgT" secondAttribute="bottom" constant="20" id="hQi-jz-XGI"/>
                             <constraint firstItem="A7k-Vv-VCh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hqp-iu-boH"/>
                             <constraint firstItem="CWX-by-Hvf" firstAttribute="bottom" secondItem="A7k-Vv-VCh" secondAttribute="bottom" constant="-8" id="iSJ-UL-nfB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="zRC-Xa-dPe" secondAttribute="trailing" constant="16" id="qAm-qt-eTF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sd1-Ey-hcd" secondAttribute="trailing" constant="24" id="qVP-uN-C77"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zRC-Xa-dPe" secondAttribute="bottom" constant="20" id="rgw-kV-hit"/>
+                            <constraint firstItem="Pin-PL-Zku" firstAttribute="width" secondItem="zRC-Xa-dPe" secondAttribute="width" id="uxt-Ii-STm"/>
                             <constraint firstItem="CWX-by-Hvf" firstAttribute="trailing" secondItem="A7k-Vv-VCh" secondAttribute="trailing" constant="-8" id="vL2-hA-Gk9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pin-PL-Zku" secondAttribute="trailing" constant="16" id="vSE-d5-SDr"/>
                             <constraint firstItem="zRC-Xa-dPe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="wby-B2-ari"/>
                             <constraint firstItem="sd1-Ey-hcd" firstAttribute="top" secondItem="A7k-Vv-VCh" secondAttribute="bottom" constant="8" id="y9L-6v-tAy"/>
+                            <constraint firstItem="RCX-fO-qgT" firstAttribute="top" secondItem="Pin-PL-Zku" secondAttribute="bottom" constant="20" id="zBB-Ts-OWx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dmw-gR-a32">
