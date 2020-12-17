@@ -20,20 +20,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var menuView: UIView!
     
     @IBOutlet var CountQuote: UILabel!
-
     var countCitation = 0
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addConstraintToMenu()
         addShadowToQuoteLabel()
         //startPopup()
-        
-        //Ajout bouton partage
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shappedTapped))
-        
-        
+    
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
                 
@@ -47,10 +41,6 @@ class ViewController: UIViewController {
         
         CountQuote.text = "\(countCitation)"
     
-        
-        
-      
-        
     }
     
     /*private func startPopup() {
@@ -78,6 +68,15 @@ class ViewController: UIViewController {
         }
         menuIsHidden = !menuIsHidden
     }
+  
+    //Share Button
+    @IBAction func shareButtonV(_ sender: UIBarButtonItem) {
+        let vc = UIActivityViewController(activityItems: [shareQuote()], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+        
+    }
+    
     
     private func addConstraintToMenu() {
         leadingConstraint.constant = -190
@@ -200,15 +199,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // Bouton share
-    
-    @objc func shappedTapped(){
-        let vc = UIActivityViewController(activityItems: [shareQuote()], applicationActivities: [])
-        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        present(vc, animated: true)
-        
-    }
-    
+
     //fonc share
     func shareQuote() ->String{
         let textequote = quoteLabel.text!
