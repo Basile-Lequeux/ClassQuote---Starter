@@ -111,8 +111,17 @@ class ViewController: UIViewController {
     // Bouton share
     
     @objc func shappedTapped(){
-        let vc = UIActivityViewController(activityItems: [quoteLabel.text!] , applicationActivities: [])
+  
+        let vc = UIActivityViewController(activityItems: [shareQuote()], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+        
+    }
+    
+    func shareQuote() ->String{
+        let textequote = quoteLabel.text!
+        let texteauthor = authorLabel.text!
+        return "\(textequote) \n  \(texteauthor)"
+        
     }
 }
