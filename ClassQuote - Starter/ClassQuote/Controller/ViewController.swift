@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         addConstraintToMenu()
         addShadowToQuoteLabel()
-        
+        //startPopup()
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
@@ -36,6 +36,15 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(leftSwipe)
         self.view.addGestureRecognizer(rightSwipe)
     }
+    
+    /*private func startPopup() {
+        let vc = PopupViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        DispatchQueue.main.async(execute: {
+            self.parent?.present(vc, animated: true)
+        })
+    }*/
 
     @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
         if menuIsHidden {
