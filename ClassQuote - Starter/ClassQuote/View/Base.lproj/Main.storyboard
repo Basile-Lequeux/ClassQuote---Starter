@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Df-Mw-jfZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I7i-qS-IsT">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -90,7 +90,7 @@
                                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="qoJ-6Q-CjF" kind="show" id="T0q-du-P9J"/>
+                                                    <segue destination="vSa-Ff-Av8" kind="show" id="N36-S4-1wV"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -165,7 +165,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kw7-r6-fzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="168"/>
+            <point key="canvasLocation" x="2110" y="168"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iWf-Vz-JOk">
+            <objects>
+                <viewController id="vSa-Ff-Av8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z6U-pW-Lzp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Présentation du groupe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTe-aC-Bbc">
+                                <rect key="frame" x="10" y="93" width="355" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hlp-Co-kRZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LST-lf-PbQ">
+                                <rect key="frame" x="10" y="138" width="355" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="BKy-sA-XnO"/>
+                                </constraints>
+                                <string key="text">Ce projet est mené par la team Coding Quote Group créé le 16/12/2020, Il est constitué de Basile Lequeux, Tristan GUALINI, Jennifer CHAN et de Boubacar YATERA.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Présentation du Projet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skh-Sm-6tX">
+                                <rect key="frame" x="10" y="298" width="355" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ju0-84-DGg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytj-dj-pUM">
+                                <rect key="frame" x="10" y="343" width="355" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="nhu-5v-z48"/>
+                                </constraints>
+                                <string key="text">Etant tous fans de citations, on a voulu proposer une application avec un design intuitif, non ubérisé avec des boutons partout, et des fonctionnalités trés utiles. L'application utilise l'api forismatic pour les citations, et l'api splach pour les ilages. </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <string key="userLabel">Etant tous fans de citations, on a voulu proposer une application avec un design intuitif, non ubérisé avec des boutons partout, et des fonctionnalités trés utiles. L'application utilise l'api forismatic pour les citations, et l'api splach pour les ilages.</string>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l1Q-TR-rf7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="l1Q-TR-rf7" firstAttribute="trailing" secondItem="LST-lf-PbQ" secondAttribute="trailing" constant="10" id="0Xw-Dy-oet"/>
+                            <constraint firstItem="Ytj-dj-pUM" firstAttribute="top" secondItem="skh-Sm-6tX" secondAttribute="bottom" constant="5" id="21f-i4-Stk"/>
+                            <constraint firstItem="skh-Sm-6tX" firstAttribute="top" secondItem="LST-lf-PbQ" secondAttribute="bottom" constant="10" id="97N-sT-ZkD"/>
+                            <constraint firstItem="l1Q-TR-rf7" firstAttribute="trailing" secondItem="skh-Sm-6tX" secondAttribute="trailing" constant="10" id="JJA-jG-mQ0"/>
+                            <constraint firstItem="l1Q-TR-rf7" firstAttribute="trailing" secondItem="pTe-aC-Bbc" secondAttribute="trailing" constant="10" id="S0N-BV-fIZ"/>
+                            <constraint firstItem="pTe-aC-Bbc" firstAttribute="top" secondItem="l1Q-TR-rf7" secondAttribute="top" constant="5" id="jgL-ax-us3"/>
+                            <constraint firstItem="Ytj-dj-pUM" firstAttribute="leading" secondItem="l1Q-TR-rf7" secondAttribute="leading" constant="10" id="ofJ-Yt-zQ0"/>
+                            <constraint firstItem="l1Q-TR-rf7" firstAttribute="trailing" secondItem="Ytj-dj-pUM" secondAttribute="trailing" constant="10" id="q40-IB-IkU"/>
+                            <constraint firstItem="skh-Sm-6tX" firstAttribute="leading" secondItem="l1Q-TR-rf7" secondAttribute="leading" constant="10" id="sci-PQ-wyJ"/>
+                            <constraint firstItem="pTe-aC-Bbc" firstAttribute="leading" secondItem="l1Q-TR-rf7" secondAttribute="leading" constant="10" id="tGB-mu-ftl"/>
+                            <constraint firstItem="LST-lf-PbQ" firstAttribute="top" secondItem="pTe-aC-Bbc" secondAttribute="bottom" constant="5" id="xd2-Nh-L1R"/>
+                            <constraint firstItem="LST-lf-PbQ" firstAttribute="leading" secondItem="l1Q-TR-rf7" secondAttribute="leading" constant="10" id="yxL-6i-fsS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6xf-cl-aal"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jP6-l1-KEq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2888.8000000000002" y="156.65024630541873"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wx5-xK-mGb">
@@ -185,10 +256,22 @@
             </objects>
             <point key="canvasLocation" x="388" y="167.73399014778326"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="PxX-EQ-PYh">
+            <objects>
+                <viewController id="I7i-qS-IsT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="koD-mE-jwf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DxY-Ep-Xrs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7gA-en-SIj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="869"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="T0q-du-P9J"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
