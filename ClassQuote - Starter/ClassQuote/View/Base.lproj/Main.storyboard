@@ -37,7 +37,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="64"/>
                                         <color key="backgroundColor" red="0.58081901069999997" green="0.1812340378" blue="0.16750967750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
-                                        <state key="normal" title="Long Quote">
+                                        <state key="normal" title="Longue Quote">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
