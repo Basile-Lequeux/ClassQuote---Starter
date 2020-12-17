@@ -19,12 +19,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
     
+    @IBOutlet var CountQuote: UILabel!
+    var countCitation = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addConstraintToMenu()
         addShadowToQuoteLabel()
         //startPopup()
-        
+    
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
                 
@@ -35,6 +38,9 @@ class ViewController: UIViewController {
 
         self.view.addGestureRecognizer(leftSwipe)
         self.view.addGestureRecognizer(rightSwipe)
+        
+        CountQuote.text = "\(countCitation)"
+    
     }
     
     /*private func startPopup() {
@@ -62,6 +68,15 @@ class ViewController: UIViewController {
         }
         menuIsHidden = !menuIsHidden
     }
+  
+    //Share Button
+    @IBAction func shareButtonV(_ sender: UIBarButtonItem) {
+        let vc = UIActivityViewController(activityItems: [shareQuote()], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+        
+    }
+    
     
     private func addConstraintToMenu() {
         leadingConstraint.constant = -190
@@ -75,22 +90,92 @@ class ViewController: UIViewController {
         quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
 
-    @IBAction func tappedNewQuoteButton() {
+//    @IBAction func tappedNewQuoteButton() {
+//        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+//            //affich image
+//            self.update(quote: quote)
+//            self.CitationCount()
+//            
+//            } else {
+//            //error
+//            self.error()
+//            }
+//        }
+//    }
+    
+    @IBAction func CourtQuote() {
+        Essaie2()
+    }
+    
+    @IBAction func longQuoteButton() {
+        Essaie1()
+    }
+    
+    func Essaie1()  {
+        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+            //affich image
+            if quote.text.count > 100{
+                self.update(quote: quote)
+                self.CitationCount()
+            }
+            else {
+                print("appel récursif + quote = \(quote.text.count)")
+                self.Essaie1()
+                
+            }
+            
+            } else {
+            //error
+            self.error()
+            }
+        }
+       
+    }
+    
+    func Essaie2()  {
+        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+            //affich image
+            if quote.text.count < 100{
+                self.update(quote: quote)
+                self.CitationCount()
+            }
+            else {
+                print("appel récursif + quote = \(quote.text.count)")
+                self.Essaie2()
+                
+            }
+            
+            } else {
+            //error
+            self.error()
+            }
+        }
+       
+    }
+    
+    func Essaie3() {
         QuoteService.getQuote {(success, quote) in if success, let quote = quote {
             //affich image
             self.update(quote: quote)
-        } else {
+            self.CitationCount()
+            
+            } else {
             //error
             self.error()
+            }
         }
-        }
+      
     }
+
+  
+    
     
     //func to affich quote, author
     private func update(quote: Quote){
         quoteLabel.text = quote.text
         imageView.image = UIImage(data: quote.imageData)
         authorLabel.text = quote.author
+       
     }
     
     //error
@@ -108,9 +193,28 @@ class ViewController: UIViewController {
     //Gesture swipe
     @objc func didSwipe(sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
-            self.tappedNewQuoteButton()
+            self.Essaie3()
         } else if (sender.direction == .right) {
             self.addToFavoris()
         }
     }
+    
+
+    //fonc share
+    func shareQuote() ->String{
+        let textequote = quoteLabel.text!
+        let texteauthor = authorLabel.text!
+        return "\(textequote) \n  \(texteauthor)"
+        
+    }
+    
+    func CitationCount(){
+        countCitation = countCitation + 1
+        CountQuote.text = "\(countCitation)"
+        
+    }
+    
+  
+    
+    
 }
