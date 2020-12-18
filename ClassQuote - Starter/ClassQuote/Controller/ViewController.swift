@@ -19,6 +19,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
     
+    var favoris = "init"
+    let defaults = UserDefaults.standard
+    var count = 0
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addConstraintToMenu()
@@ -35,6 +41,15 @@ class ViewController: UIViewController {
 
         self.view.addGestureRecognizer(leftSwipe)
         self.view.addGestureRecognizer(rightSwipe)
+        
+        if defaults.value(forKey: "fav") != nil {
+            favoris = defaults.string(forKey: "fav")!
+        }
+        print("load")
+        print(favoris)
+        
+        
+        
     }
 
     @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
@@ -92,9 +107,49 @@ class ViewController: UIViewController {
     }
     
     //Ajout au favoris
-    private func addToFavoris() {
-        print("Ajouter au favoris")
+    
+    public func addToFavoris() {
+        
+        
+        //récuperation des données de la quote
+        let author = authorLabel.text!
+        let text = quoteLabel.text!
+        let favoris = "favoris"
+        
+        let stringcount = String(count)
+        
+        
+        
+        
+        guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+            let fileUrl = documentDirectoryUrl.appendingPathComponent("Favoris.json")
+        
+            
+        let QuoteArray = ["ID": stringcount, "text": text, "author": author, "favoris":favoris]
+        
+
+        do {
+            let data = try JSONSerialization.data(withJSONObject: QuoteArray, options: [])
+            try data.write(to: fileUrl, options: [])
+            count = count + 1
+            print("envoie... ,\(QuoteArray)")
+            } catch {
+             print(error)
+            }
+
+    
+        
+        
+        
+        /*
+        print(favoris)
+        defaults.set(quoteLabel.text, forKey: "fav")
+ */
+        
     }
+    
+    
+
     
     //Gesture swipe
     @objc func didSwipe(sender: UISwipeGestureRecognizer) {
@@ -102,6 +157,7 @@ class ViewController: UIViewController {
             self.tappedNewQuoteButton()
         } else if (sender.direction == .right) {
             self.addToFavoris()
+        
         }
     }
 }
