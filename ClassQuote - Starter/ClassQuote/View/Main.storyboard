@@ -282,35 +282,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAd-xW-Zoh">
-                                <rect key="frame" x="50" y="454" width="275" height="4"/>
-                                <color key="backgroundColor" red="0.33725490200000002" green="0.037072317940000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="4" id="Iqh-WT-xP3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eKe-nx-M5f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IAd-xW-Zoh" firstAttribute="leading" secondItem="eKe-nx-M5f" secondAttribute="leading" constant="50" id="0BY-Am-CdA"/>
                             <constraint firstItem="fXI-vh-qgs" firstAttribute="leading" secondItem="eKe-nx-M5f" secondAttribute="leading" constant="50" id="2IN-EQ-8l1"/>
                             <constraint firstItem="eKe-nx-M5f" firstAttribute="trailing" secondItem="ZtC-wI-iR2" secondAttribute="trailing" id="4WO-OZ-jS4"/>
                             <constraint firstItem="eKe-nx-M5f" firstAttribute="trailing" secondItem="fXI-vh-qgs" secondAttribute="trailing" constant="50" id="7vM-S1-O8g"/>
                             <constraint firstItem="OVJ-c8-Ous" firstAttribute="leading" secondItem="eKe-nx-M5f" secondAttribute="leading" constant="10" id="GdC-4k-y01"/>
                             <constraint firstItem="7ji-cn-5m5" firstAttribute="leading" secondItem="eKe-nx-M5f" secondAttribute="leading" constant="10" id="JXh-FF-E1H"/>
                             <constraint firstItem="QLT-pU-PhR" firstAttribute="leading" secondItem="eKe-nx-M5f" secondAttribute="leading" constant="10" id="JfL-R9-Mhs"/>
-                            <constraint firstItem="IAd-xW-Zoh" firstAttribute="top" secondItem="ZtC-wI-iR2" secondAttribute="bottom" id="K2L-QL-a4j"/>
                             <constraint firstItem="fXI-vh-qgs" firstAttribute="top" secondItem="7ji-cn-5m5" secondAttribute="bottom" constant="10" id="P3q-mC-TZY"/>
                             <constraint firstItem="7ji-cn-5m5" firstAttribute="top" secondItem="QLT-pU-PhR" secondAttribute="bottom" constant="50" id="W6y-A5-Ryr"/>
                             <constraint firstItem="ZtC-wI-iR2" firstAttribute="top" secondItem="OVJ-c8-Ous" secondAttribute="bottom" constant="10" id="YeW-JE-1j7"/>
                             <constraint firstItem="eKe-nx-M5f" firstAttribute="trailing" secondItem="OVJ-c8-Ous" secondAttribute="trailing" constant="10" id="ctj-Sb-W9E"/>
                             <constraint firstItem="QLT-pU-PhR" firstAttribute="top" secondItem="eKe-nx-M5f" secondAttribute="top" constant="10" id="d30-gg-XGg"/>
                             <constraint firstItem="eKe-nx-M5f" firstAttribute="trailing" secondItem="7ji-cn-5m5" secondAttribute="trailing" constant="10" id="hAM-Ax-Ye3"/>
-                            <constraint firstItem="eKe-nx-M5f" firstAttribute="trailing" secondItem="IAd-xW-Zoh" secondAttribute="trailing" constant="50" id="ix6-Lb-gXC"/>
                             <constraint firstItem="ZtC-wI-iR2" firstAttribute="leading" secondItem="eKe-nx-M5f" secondAttribute="leading" id="nZ7-Gd-iNd"/>
                             <constraint firstItem="OVJ-c8-Ous" firstAttribute="top" secondItem="fXI-vh-qgs" secondAttribute="bottom" constant="10" id="pQI-gv-WEm"/>
                             <constraint firstItem="eKe-nx-M5f" firstAttribute="trailing" secondItem="QLT-pU-PhR" secondAttribute="trailing" constant="10" id="sVQ-CP-j8V"/>

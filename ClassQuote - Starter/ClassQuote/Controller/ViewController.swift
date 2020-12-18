@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var courtBouton: UIButton!
     @IBOutlet var CountQuote: UILabel!
     var countCitation = 0
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +122,6 @@ class ViewController: UIViewController {
                 }
                 
             }
-            print("court")
         case "longue":
             QuoteService.getQuote{(success, quote) in if success, let quote = quote{
                     if quote.text.count > 100 {
@@ -135,8 +135,6 @@ class ViewController: UIViewController {
                 self.error()
             }
             }
-            print("longue")
-            
         case "swipe":
             QuoteService.getQuote{(success, quote) in if success, let quote = quote {
                     self.update(quote: quote)
@@ -147,7 +145,6 @@ class ViewController: UIViewController {
             }
                 
             }
-            print("swipe")
         default:
             print("default")
         }
@@ -171,9 +168,31 @@ class ViewController: UIViewController {
     }
     
     //Ajout au favoris
-    private func addToFavoris() {
-        print("Ajouter au favoris")
-    }
+    public func addToFavoris() {
+            //récuperation des données de la quote
+            let author = authorLabel.text!
+            let text = quoteLabel.text!
+            let favoris = "favoris"
+
+            let stringcount = String(count)
+            guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+                let fileUrl = documentDirectoryUrl.appendingPathComponent("Favoris.json")
+
+
+            let QuoteArray = ["ID": stringcount, "text": text, "author": author, "favoris":favoris]
+
+
+            do {
+                let data = try JSONSerialization.data(withJSONObject: QuoteArray, options: [])
+                try data.write(to: fileUrl, options: [])
+                count = count + 1
+
+                } catch {
+                 print(error)
+                }
+
+
+        }
     
     //Gesture swipe
     @objc func didSwipe(sender: UISwipeGestureRecognizer) {
