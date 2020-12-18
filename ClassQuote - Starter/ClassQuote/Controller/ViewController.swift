@@ -18,14 +18,14 @@ class ViewController: UIViewController {
     var menuIsHidden = true
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
-    
+    @IBOutlet weak var longBouton: UIButton!
+    @IBOutlet weak var courtBouton: UIButton!
     @IBOutlet var CountQuote: UILabel!
     var countCitation = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addConstraintToMenu()
-        addShadowToQuoteLabel()
+        changeViewC()
         //startPopup()
     
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
@@ -78,16 +78,18 @@ class ViewController: UIViewController {
     }
     
     
-    private func addConstraintToMenu() {
+    private func changeViewC() {
+        //Changement du menu
         leadingConstraint.constant = -190
         menuView.layer.shadowOpacity = 0.5
         menuView.layer.shadowRadius = 6
-    }
-    
-    private func addShadowToQuoteLabel() {
+        //Modification des ombres des quotes
         quoteLabel.layer.shadowColor = UIColor.black.cgColor
         quoteLabel.layer.shadowOpacity = 0.9
         quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+        //Modification des boutons
+        longBouton.layer.cornerRadius = 20
+        courtBouton.layer.cornerRadius = 20
     }
 
 //    @IBAction func tappedNewQuoteButton() {
