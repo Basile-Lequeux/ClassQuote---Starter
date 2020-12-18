@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         rightSwipe.direction = .right
         
         self.view.isUserInteractionEnabled = true
+        
 
         self.view.addGestureRecognizer(leftSwipe)
         self.view.addGestureRecognizer(rightSwipe)
