@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController {
 
@@ -21,6 +22,13 @@ class ViewController: UIViewController {
     
     @IBOutlet var CountQuote: UILabel!
     var countCitation = 0
+    var count = 0
+    
+    
+    let userDefaults = UserDefaults.standard
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,7 +204,33 @@ class ViewController: UIViewController {
         let favoris = "favoris"
         
         let stringcount = String(count)
+        var authors = String("authors,\(stringcount)")
+            
+        let QuoteDictionary = [
+            "author" : author,
+            "text": text
+        ]
         
+        
+        userDefaults.set(QuoteDictionary, forKey: "myKey")
+        
+        var strings: [String:String] = userDefaults.object(forKey: "myKey") as? [String:String] ?? [:]
+        
+        
+
+        //strings["id"] = stringcount
+        //strings[authors] = author
+        //strings["text"] = text
+        //strings["tata"] = "yo"
+        
+        
+        userDefaults.set(strings, forKey: "myKey")
+        
+        print(userDefaults.object(forKey: "myKey")!)
+        
+        
+        
+
         
         
         
@@ -211,19 +245,13 @@ class ViewController: UIViewController {
             let data = try JSONSerialization.data(withJSONObject: QuoteArray, options: [])
             try data.write(to: fileUrl, options: [])
             count = count + 1
-            print("envoie... ,\(QuoteArray)")
+            
             } catch {
              print(error)
             }
 
     
         
-        
-        
-        /*
-        print(favoris)
-        defaults.set(quoteLabel.text, forKey: "fav")
- */
         
     }
     
