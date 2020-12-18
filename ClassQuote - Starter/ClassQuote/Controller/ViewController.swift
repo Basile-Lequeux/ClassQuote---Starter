@@ -18,14 +18,15 @@ class ViewController: UIViewController {
     var menuIsHidden = true
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
-    
+    @IBOutlet weak var longBouton: UIButton!
+    @IBOutlet weak var courtBouton: UIButton!
     @IBOutlet var CountQuote: UILabel!
     var countCitation = 0
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addConstraintToMenu()
-        addShadowToQuoteLabel()
+        changeViewC()
         //startPopup()
     
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(sender:)))
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
         rightSwipe.direction = .right
         
         self.view.isUserInteractionEnabled = true
+        
 
         self.view.addGestureRecognizer(leftSwipe)
         self.view.addGestureRecognizer(rightSwipe)
@@ -78,96 +80,76 @@ class ViewController: UIViewController {
     }
     
     
-    private func addConstraintToMenu() {
+    private func changeViewC() {
+        //Changement du menu
         leadingConstraint.constant = -190
         menuView.layer.shadowOpacity = 0.5
         menuView.layer.shadowRadius = 6
-    }
-    
-    private func addShadowToQuoteLabel() {
+        //Modification des ombres des quotes
         quoteLabel.layer.shadowColor = UIColor.black.cgColor
         quoteLabel.layer.shadowOpacity = 0.9
         quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+        //Modification des boutons
+        longBouton.layer.cornerRadius = 20
+        courtBouton.layer.cornerRadius = 20
     }
 
-//    @IBAction func tappedNewQuoteButton() {
-//        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-//            //affich image
-//            self.update(quote: quote)
-//            self.CitationCount()
-//            
-//            } else {
-//            //error
-//            self.error()
-//            }
-//        }
-//    }
-    
+
     @IBAction func CourtQuote() {
-        Essaie2()
+        newQuote(parametre: "court")
     }
     
     @IBAction func longQuoteButton() {
-        Essaie1()
+        newQuote(parametre: "longue")
     }
     
-    func Essaie1()  {
-        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-            //affich image
-            if quote.text.count > 100{
-                self.update(quote: quote)
-                self.CitationCount()
-            }
-            else {
-                print("appel récursif + quote = \(quote.text.count)")
-                self.Essaie1()
+   //Afficher une nouvelle quote
+    func newQuote(parametre : String){
+        switch parametre {
+        case "court":
+            QuoteService.getQuote{(success, quote) in if success, let quote = quote{
+                    //affich image
+                    if quote.text.count < 100 {
+                        self.update(quote: quote)
+                        self.CitationCount()
+                    }
+                    else{
+                        self.newQuote(parametre: "court")
+                    }
+                }
+                else{
+                    self.error()
+                }
                 
             }
-            
-            } else {
-            //error
-            self.error()
+        case "longue":
+            QuoteService.getQuote{(success, quote) in if success, let quote = quote{
+                    if quote.text.count > 100 {
+                        self.update(quote: quote)
+                        self.CitationCount()
+                    }else{
+                        self.newQuote(parametre: "longue")
+                    }
+                }
+            else{
+                self.error()
             }
-        }
-       
-    }
-    
-    func Essaie2()  {
-        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-            //affich image
-            if quote.text.count < 100{
-                self.update(quote: quote)
-                self.CitationCount()
             }
-            else {
-                print("appel récursif + quote = \(quote.text.count)")
-                self.Essaie2()
+        case "swipe":
+            QuoteService.getQuote{(success, quote) in if success, let quote = quote {
+                    self.update(quote: quote)
+                    self.CitationCount()
+                }
+            else{
+                self.error()
+            }
                 
             }
-            
-            } else {
-            //error
-            self.error()
-            }
+        default:
+            print("default")
         }
-       
+        
     }
-    
-    func Essaie3() {
-        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-            //affich image
-            self.update(quote: quote)
-            self.CitationCount()
-            
-            } else {
-            //error
-            self.error()
-            }
-        }
-      
-    }
-
-  
     
     
     //func to affich quote, author
@@ -186,14 +168,36 @@ class ViewController: UIViewController {
     }
     
     //Ajout au favoris
-    private func addToFavoris() {
-        print("Ajouter au favoris")
-    }
+    public func addToFavoris() {
+            //récuperation des données de la quote
+            let author = authorLabel.text!
+            let text = quoteLabel.text!
+            let favoris = "favoris"
+
+            let stringcount = String(count)
+            guard let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+                let fileUrl = documentDirectoryUrl.appendingPathComponent("Favoris.json")
+
+
+            let QuoteArray = ["ID": stringcount, "text": text, "author": author, "favoris":favoris]
+
+
+            do {
+                let data = try JSONSerialization.data(withJSONObject: QuoteArray, options: [])
+                try data.write(to: fileUrl, options: [])
+                count = count + 1
+
+                } catch {
+                 print(error)
+                }
+
+
+        }
     
     //Gesture swipe
     @objc func didSwipe(sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
-            self.Essaie3()
+            self.newQuote(parametre: "swipe")
         } else if (sender.direction == .right) {
             self.addToFavoris()
         }
@@ -218,3 +222,64 @@ class ViewController: UIViewController {
     
     
 }
+/*
+ 
+ func Essaie1()  {
+     QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+         //affich image
+         if quote.text.count > 100{
+             self.update(quote: quote)
+             self.CitationCount()
+         }
+         else {
+             print("appel récursif + quote = \(quote.text.count)")
+             self.Essaie1()
+             
+         }
+         
+         } else {
+         //error
+         self.error()
+         }
+     }
+    
+ }
+
+ 
+ 
+func Essaie2()  {
+    QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+        //affich image
+        if quote.text.count < 100{
+            self.update(quote: quote)
+            self.CitationCount()
+        }
+        else {
+            print("appel récursif + quote = \(quote.text.count)")
+            self.Essaie2()
+            
+        }
+        
+        } else {
+        //error
+        self.error()
+        }
+    }
+   
+}
+
+func Essaie3() {
+    QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+        //affich image
+        self.update(quote: quote)
+        self.CitationCount()
+        
+        } else {
+        //error
+        self.error()
+        }
+    }
+  
+}
+
+*/

@@ -11,15 +11,20 @@ import UIKit
 class PopupViewController: UIViewController {
 
     @IBOutlet weak var popUpView: UIView!
+    @IBOutlet weak var popUpBouton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        popUpView.layer.cornerRadius = 10
-        popUpView.clipsToBounds = true
+        changeLayer()
     }
     
     @IBAction func dismissPopup(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func changeLayer() {
+        popUpView.layer.cornerRadius = 10
+        popUpView.clipsToBounds = true
+        popUpBouton.layer.cornerRadius = 20
     }
 }
