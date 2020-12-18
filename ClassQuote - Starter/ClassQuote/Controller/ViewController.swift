@@ -90,84 +90,66 @@ class ViewController: UIViewController {
         quoteLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
 
-//    @IBAction func tappedNewQuoteButton() {
-//        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-//            //affich image
-//            self.update(quote: quote)
-//            self.CitationCount()
-//            
-//            } else {
-//            //error
-//            self.error()
-//            }
-//        }
-//    }
-    
+
     @IBAction func CourtQuote() {
-        Essaie2()
+        newQuote(parametre: "court")
     }
     
     @IBAction func longQuoteButton() {
-        Essaie1()
+        newQuote(parametre: "longue")
     }
     
-    func Essaie1()  {
-        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-            //affich image
-            if quote.text.count > 100{
-                self.update(quote: quote)
-                self.CitationCount()
-            }
-            else {
-                print("appel récursif + quote = \(quote.text.count)")
-                self.Essaie1()
+   //Afficher une nouvelle quote
+    func newQuote(parametre : String){
+        switch parametre {
+        case "court":
+            QuoteService.getQuote{(success, quote) in if success, let quote = quote{
+                    //affich image
+                    if quote.text.count < 100 {
+                        self.update(quote: quote)
+                        self.CitationCount()
+                    }
+                    else{
+                        self.newQuote(parametre: "court")
+                    }
+                }
+                else{
+                    self.error()
+                }
                 
             }
+            print("court")
+        case "longue":
+            QuoteService.getQuote{(success, quote) in if success, let quote = quote{
+                    if quote.text.count > 100 {
+                        self.update(quote: quote)
+                        self.CitationCount()
+                    }else{
+                        self.newQuote(parametre: "longue")
+                    }
+                }
+            else{
+                self.error()
+            }
+            }
+            print("longue")
             
-            } else {
-            //error
-            self.error()
+        case "swipe":
+            QuoteService.getQuote{(success, quote) in if success, let quote = quote {
+                    self.update(quote: quote)
+                    self.CitationCount()
+                }
+            else{
+                self.error()
             }
-        }
-       
-    }
-    
-    func Essaie2()  {
-        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-            //affich image
-            if quote.text.count < 100{
-                self.update(quote: quote)
-                self.CitationCount()
-            }
-            else {
-                print("appel récursif + quote = \(quote.text.count)")
-                self.Essaie2()
                 
             }
-            
-            } else {
-            //error
-            self.error()
-            }
+            print("swipe")
+        default:
+            print("default")
         }
-       
+        
     }
-    
-    func Essaie3() {
-        QuoteService.getQuote {(success, quote) in if success, let quote = quote {
-            //affich image
-            self.update(quote: quote)
-            self.CitationCount()
-            
-            } else {
-            //error
-            self.error()
-            }
-        }
-      
-    }
-
-  
     
     
     //func to affich quote, author
@@ -193,7 +175,7 @@ class ViewController: UIViewController {
     //Gesture swipe
     @objc func didSwipe(sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
-            self.Essaie3()
+            self.newQuote(parametre: "swipe")
         } else if (sender.direction == .right) {
             self.addToFavoris()
         }
@@ -218,3 +200,64 @@ class ViewController: UIViewController {
     
     
 }
+/*
+ 
+ func Essaie1()  {
+     QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+         //affich image
+         if quote.text.count > 100{
+             self.update(quote: quote)
+             self.CitationCount()
+         }
+         else {
+             print("appel récursif + quote = \(quote.text.count)")
+             self.Essaie1()
+             
+         }
+         
+         } else {
+         //error
+         self.error()
+         }
+     }
+    
+ }
+
+ 
+ 
+func Essaie2()  {
+    QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+        //affich image
+        if quote.text.count < 100{
+            self.update(quote: quote)
+            self.CitationCount()
+        }
+        else {
+            print("appel récursif + quote = \(quote.text.count)")
+            self.Essaie2()
+            
+        }
+        
+        } else {
+        //error
+        self.error()
+        }
+    }
+   
+}
+
+func Essaie3() {
+    QuoteService.getQuote {(success, quote) in if success, let quote = quote {
+        //affich image
+        self.update(quote: quote)
+        self.CitationCount()
+        
+        } else {
+        //error
+        self.error()
+        }
+    }
+  
+}
+
+*/
