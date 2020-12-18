@@ -96,7 +96,7 @@
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="gjn-io-0br" kind="show" id="PeK-qO-7be"/>
+                                                    <segue destination="qoJ-6Q-CjF" kind="show" id="hyA-ZT-7Rk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8z-mW-Ntt">
@@ -117,11 +117,11 @@
                                                 <state key="normal" title="À propos">
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="qoJ-6Q-CjF" kind="show" id="T0q-du-P9J"/>
+                                                </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="hPi-C4-nbk" firstAttribute="top" secondItem="RbX-vc-55g" secondAttribute="bottom" constant="30" id="SaP-bi-HXI"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ggp-L7-KgB">
                                         <rect key="frame" x="5" y="560" width="180" height="120"/>
